@@ -13,8 +13,28 @@ const TestAnswers = (props) => {
     fetch(`/getAllAnswersTest/${props.test._id}`)
       .then((response) => response.json())
       .then((tests) => {
-        const chunked_arr = [];
         const totalLength = tests.length;
+        const chunked_arr = [];
+
+        if (totalLength === 0) {
+          setAnswers(chunked_arr);
+          return;
+        }
+
+        if (totalLength === 1) {
+          const temp = [tests[1], {}, {}];
+          chunked_arr.push(temp);
+          setAnswers(chunked_arr);
+          return;
+        }
+
+        if (totalLength === 2) {
+          const temp = [tests[1], tests[2], {}];
+          setAnswers(chunked_arr);
+          chunked_arr.push(temp);
+          return;
+        }
+
         const residue = totalLength % 3;
         const mod3Length = totalLength - residue;
 
