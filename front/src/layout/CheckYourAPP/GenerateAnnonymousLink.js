@@ -5,7 +5,7 @@ const randomstring = require("randomstring");
 const GenerateAnnonymousLink = () => {
   const formRef = useRef();
   const AnonymusLink = React.createRef();
-  const baseUrl = "survey/";
+  const baseUrl = "/survey/";
   const url = baseUrl + randomstring.generate();
 
   const handleSubmit = (event) => {

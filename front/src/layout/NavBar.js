@@ -3,11 +3,11 @@ import logo from "./logo.svg";
 
 import { Link } from "react-router-dom";
 
-const backurl = "https://designyourownaccesbilitytest.herokuapp.com";
+const backurl = "http://localhost:3001";
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg fixed-top">
+    <nav className="navbar navbar-expand-lg fixed-top navbar-dark">
       <Link to="/" className="nav-link">
         <img
           src={logo}

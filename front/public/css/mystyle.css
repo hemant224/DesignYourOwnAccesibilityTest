@@ -14,63 +14,11 @@ a {
   font-family: "Noto Serif", Serif;
 }
 
-.card-body {
-  padding: 4rem;
-}
-.display-4,
-.lead {
-  color: #fdfdfe;
-}
-
-.navbar {
-  background-color: #4eeaf6;
-}
-
-#navbarText {
-  color: #c82586;
-}
-
-.nav-link {
-  color: #021e32;
-}
-
-.btn-primary {
-  border-color: #c82586;
-  background-color: #c82586;
-}
-
-.btn-primary:focus,
-.btn-primary:disabled,
-.btn-primary:hover {
-  border-color: #a72272;
-  background-color: #a72272;
-}
-
-body {
-  padding-top: 100px;
-  background-color: #f7f7f8;
-}
-
 img,
 iframe {
   border: none;
   display: block;
   margin: 0 auto;
-}
-
-.jumbotron {
-  background-image: url("./banner.jpg");
-  background-size: cover;
-  height: 70vh;
-}
-
-#jumbo {
-  padding-left: 35vw;
-}
-
-.btn {
-  margin-left: 2vw;
-  margin-right: 2vw;
 }
 
 .card {
@@ -87,4 +35,57 @@ iframe {
   margin-right: 20vw;
   max-width: 100%;
   width: 60%;
+}
+
+.card-body {
+  padding: 4rem;
+}
+
+/* NavBar */
+.navbar {
+  background-color: #111f4d;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #fdfdfe;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fdfdfe;
+}
+
+/* body */
+body {
+  padding-top: 100px;
+  background-color: #f2f4f7;
+}
+
+.jumbotron {
+  background-image: url("./banner.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+}
+
+.display-4,
+.lead {
+  color: #fdfdfe;
+}
+
+/* butones */
+.btn {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.btn-primary {
+  border-color: #e43a19;
+  background-color: #e43a19;
+}
+
+.btn-primary:focus,
+.btn-primary:disabled,
+.btn-primary:hover {
+  border-color: #f73008;
+  background-color: #f73008;
 }

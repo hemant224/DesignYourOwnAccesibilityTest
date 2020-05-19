@@ -34,5 +34,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://designyourownaccesbilitytest.herokuapp.com"
+  "proxy": "http://localhost:3001/"
 }

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const frontURL = "https://designyourownaccesbilitytest.herokuapp.com";
+const frontURL = "http://localhost:3000";
 
 // auth login
 router.get("/login", (req, res) => {
