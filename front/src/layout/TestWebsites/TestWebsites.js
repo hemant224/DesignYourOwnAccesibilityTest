@@ -53,7 +53,7 @@ const TestWebsites = () => {
       <div>
         {group.map((test) => {
           return (
-            <div key="<row></row>" className="row">
+            <div key={test.title + test.url + test.description} className="row">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{test.title}</h5>
