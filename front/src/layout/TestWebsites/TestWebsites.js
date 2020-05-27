@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalConsent from "./ModalConsent.js";
 import { Link, useParams } from "react-router-dom";
-const randomstring = require("randomstring");
 
 const TestWebsites = () => {
   const [currentTest, setCurrentTest] = useState({});
@@ -14,9 +13,7 @@ const TestWebsites = () => {
   window.scrollTo(0, 0);
 
   const handleClick = (evt, test) => {
-    console.log("test1", test);
     setCurrentTest(test);
-    console.log("test2", currentTest);
   };
 
   useEffect(() => {
@@ -56,7 +53,7 @@ const TestWebsites = () => {
       <div>
         {group.map((test) => {
           return (
-            <div key={test.title + randomstring.generate()} className="row">
+            <div key="<row></row>" className="row">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{test.title}</h5>

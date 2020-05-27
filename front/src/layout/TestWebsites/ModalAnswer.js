@@ -114,7 +114,7 @@ const ModalAnswer = (props) => {
                 {props.test.openQs.map((q, i) => {
                   return (
                     <div className="form-group">
-                      <label for={"openQ" + i}>{q.label}</label>
+                      <label htmlFor={"openQ" + i}>{q.label}</label>
                       <br></br>
                       <textarea
                         className="form-control"
