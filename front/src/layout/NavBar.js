@@ -36,7 +36,7 @@ const NavBar = (props) => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/gettesting" className="nav-link">
+            <Link to="/gettesting/1" className="nav-link">
               Test
             </Link>
           </li>
