@@ -14,7 +14,9 @@ const TestWebsites = () => {
   window.scrollTo(0, 0);
 
   const handleClick = (evt, test) => {
+    console.log("test1", test);
     setCurrentTest(test);
+    console.log("test2", currentTest);
   };
 
   useEffect(() => {
