@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ModalConsent from "./ModalConsent.js";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 const randomstring = require("randomstring");
 
 const TestWebsites = () => {
   const [currentTest, setCurrentTest] = useState({});
   const [tests, setTests] = useState([]);
   const [limit, setLimit] = useState(0);
-  const page = useParams().page || 1;
+  const temp = useParams().page;
+  const page = temp <= 0 ? 1 : temp;
+  const url = "/gettesting/";
+
+  window.scrollTo(0, 0);
 
   const handleClick = (evt, test) => {
     setCurrentTest(test);
@@ -34,13 +38,15 @@ const TestWebsites = () => {
   }, [page]);
 
   const next = () => {
-    if (page >= limit) return;
-    page++;
+    if (page >= limit) return page;
+    var temp = page;
+    temp++;
+    return temp;
   };
 
   const previous = () => {
-    if (page <= 0) return;
-    page--;
+    if (page <= 1) return page;
+    return page - 1;
   };
 
   const code = tests.map((group, i) => {
@@ -72,29 +78,14 @@ const TestWebsites = () => {
         <nav aria-label="Page navigation example">
           <ul className="pagination">
             <li className="page-item">
-              <a className="page-link" href="#">
+              <Link to={url + previous()} className="page-link">
                 Previous
-              </a>
+              </Link>
             </li>
             <li className="page-item">
-              <a className="page-link" href="#">
-                1
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
-                2
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
-                3
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
+              <Link to={url + next()} className="page-link">
                 Next
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
