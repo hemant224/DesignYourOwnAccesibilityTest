@@ -9,6 +9,10 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+h4 {
+  margin-left: -1.3rem;
+  margin-top: 1rem;
+}
 
 a {
   font-family: "Noto Serif", Serif;
@@ -26,8 +30,8 @@ iframe {
 }
 
 .row {
-  margin-top: 5vw;
-  margin-bottom: 2.5vw;
+  margin-top: 3vw;
+  margin-bottom: 4vw;
 }
 
 .modal-dialog {
@@ -38,7 +42,10 @@ iframe {
 }
 
 .card-body {
-  padding: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* NavBar */
@@ -88,4 +95,71 @@ body {
 .btn-primary:hover {
   border-color: #f73008;
   background-color: #f73008;
+}
+
+.btn-light {
+  color: #ff0000;
+  background-color: white;
+  border-color: white;
+  padding: 0;
+  margin-top: 1.5em;
+}
+
+.btn-light:focus,
+.btn-light:hover,
+.btn-light:disabled {
+  color: white;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+#createForm .form-group {
+  outline: 1px solid #000;
+  outline-color: rgba(50, 115, 220, 0.7);
+  outline-offset: 6px;
+  margin-bottom: 1.5rem;
+}
+#createForm .col-sm-8 {
+  outline: 1px solid #000;
+  outline-color: rgba(50, 115, 220, 0.7);
+  outline-offset: 6px;
+}
+
+.col-sm-2 {
+  text-align: center;
+}
+
+#checkLink {
+  margin-left: 1vw;
+  margin-top: 20px;
+}
+
+#createForm #title,
+#createForm #description,
+#createForm #habeasd {
+  width: 55vw;
+}
+
+#createForm #URL {
+  width: 55vw;
+}
+
+#h5CreateTest {
+  padding-bottom: 1em;
+}
+
+.br {
+  height: 1.2em;
+}
+
+.5br {
+  height: 6em;
+}
+
+#modalTextArea {
+  width: 50vw;
+}
+
+#linkAnon {
+  color: #fdfdfe;
 }

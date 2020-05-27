@@ -34,7 +34,7 @@ router.post("/newAnswer", (req, res) => {
 });
 
 router.get("/getAllTestsUser/:id", function (req, res) {
-  mu.getAllTestsUser(parseInt(req.params.id))
+  mu.getAllTestsUser(req.params.id)
     .then((tests) => {
       return res.json(tests);
     })
