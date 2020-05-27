@@ -27,14 +27,24 @@ function MongoUtils() {
     return cliente.connect();
   };
 
-  mu.getAllTests = () => {
+  mu.getAllTestsTotal = () => {
+    return mu.connect().then((client) =>
+      client
+        .db(dbName)
+        .collection("test")
+        .count()
+        .finally(() => client.close())
+    );
+  };
+
+  mu.getAllTests = (page) => {
     return mu.connect().then((client) =>
       client
         .db(dbName)
         .collection("test")
         .find()
-        .skip(1)
-        .limit(15)
+        .skip((page - 1) * 5)
+        .limit(5)
         .toArray()
         .finally(() => client.close())
     );

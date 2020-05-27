@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/gettesting">
+        <Route exact path="/gettesting/:page">
           <TestWebsites />
         </Route>
         <Route exact path="/createyourowntest">

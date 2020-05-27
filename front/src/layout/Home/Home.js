@@ -19,7 +19,7 @@ const Home = () => {
             Create my own test
           </button>
         </Link>
-        <Link to="/gettesting">
+        <Link to="/gettesting/1">
           <button type="button" className="btn btn-primary">
             Get testing
           </button>

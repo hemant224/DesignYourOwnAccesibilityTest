@@ -26,7 +26,7 @@ iframe {
 }
 
 .row {
-  margin-top: 5vw;
+  margin-top: 3vw;
   margin-bottom: 2.5vw;
 }
 
@@ -37,8 +37,14 @@ iframe {
   width: 60%;
 }
 
+.card {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
 .card-body {
   padding: 4rem;
+  text-align: center;
 }
 
 /* NavBar */

@@ -2,8 +2,17 @@ var express = require("express");
 var router = express.Router();
 const mu = require("../db/MongoUtils.js");
 
-router.get("/getAllTests", function (req, res) {
-  mu.getAllTests()
+router.get("/getAllTestsTotal", function (req, res) {
+  mu.getAllTestsTotal()
+    .then((total) => {
+      return res.json(total);
+    })
+    .catch((err) => console.log(err));
+});
+
+router.get("/getAllTests/:page", function (req, res) {
+  const page = req.params.page;
+  mu.getAllTests(page)
     .then((tests) => {
       return res.json(tests);
     })
