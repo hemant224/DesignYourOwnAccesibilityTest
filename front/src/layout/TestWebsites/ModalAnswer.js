@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 
 const ModalAnswer = (props) => {
   const formRef = useRef();

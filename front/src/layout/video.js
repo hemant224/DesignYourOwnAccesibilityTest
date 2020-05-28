@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import AnswersForm from "./AnswersForm.js";
 
 var mediaRecorder = "";
 

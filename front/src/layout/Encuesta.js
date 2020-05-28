@@ -3,7 +3,6 @@ import AnswersForm from "./AnswersForm.js";
 
 const Encuesta = () => {
   const [accept, setAccept] = useState(false);
-  const [habeas, setHabeas] = useState("");
 
   const acceptFun = () => {
     setAccept(true);
