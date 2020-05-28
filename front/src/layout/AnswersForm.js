@@ -149,7 +149,7 @@ const AnswersForm = (props) => {
                     </div>
                   );
                 })}
-                <p>{"Instruction: " + test.instruction}</p>
+                <p>{"Instrucción: " + test.instruction}</p>
                 <div className="form-group" ref={instructionRef}>
                   <label>¿Pudo llevar la instrucción a cabo?</label>
                   <div className="custom-control custom-radio">
@@ -165,7 +165,7 @@ const AnswersForm = (props) => {
                       className="custom-control-label"
                       htmlFor="yesInstruction"
                     >
-                      Yes
+                      Si
                     </label>
                   </div>
                   <div className="custom-control custom-radio">

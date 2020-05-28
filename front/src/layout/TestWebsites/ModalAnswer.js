@@ -136,9 +136,9 @@ const ModalAnswer = (props) => {
                     </div>
                   );
                 })}
-                <p>{"Instruction: " + props.test.instruction}</p>
+                <p>{"Instrucción: " + props.test.instruction}</p>
                 <div className="form-group" ref={instructionRef}>
-                  <label>Could you carry out the instruction?</label>
+                  <label>¿Pudo llevar la instrucción a cabo?</label>
                   <div className="custom-control custom-radio">
                     <input
                       type="radio"
@@ -151,7 +151,7 @@ const ModalAnswer = (props) => {
                       className="custom-control-label"
                       htmlFor="yesInstruction"
                     >
-                      Yes
+                      Si
                     </label>
                   </div>
                   <div className="custom-control custom-radio">
