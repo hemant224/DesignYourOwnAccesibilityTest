@@ -173,3 +173,7 @@ body {
   margin-left: 0;
   margin-top: 0.7em;
 }
+
+.pagination a {
+  color: #111f4d;
+}
