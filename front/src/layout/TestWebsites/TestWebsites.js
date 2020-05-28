@@ -74,20 +74,24 @@ const TestWebsites = () => {
             </div>
           );
         })}
-        <nav aria-label="Page navigation example">
-          <ul className="pagination">
-            <li className="page-item">
-              <Link to={url + previous()} className="page-link">
-                Previous
-              </Link>
-            </li>
-            <li className="page-item">
-              <Link to={url + next()} className="page-link">
-                Next
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="container">
+          <div class="row justify-content-md-center">
+            <nav aria-label="Page navigation">
+              <ul className="pagination">
+                <li className="page-item">
+                  <Link to={url + previous()} className="page-link">
+                    Previous
+                  </Link>
+                </li>
+                <li className="page-item">
+                  <Link to={url + next()} className="page-link">
+                    Next
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     );
   });
