@@ -2,7 +2,7 @@
 
 ## GIF
 
-![](https://raw.githubusercontent.com/dfriveros11/DesignYourOwnAccesibilityTest/master/giphy2.gif)
+![](https://raw.githubusercontent.com/dfriveros11/DesignYourOwnAccesibilityTest/master/agif.gif)
 
 ## Description
 
