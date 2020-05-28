@@ -63,7 +63,6 @@ function MongoUtils() {
   };
 
   mu.newTest = (test) => {
-    console.log(test);
     return mu.connect().then((client) => {
       console.log(client);
       client
