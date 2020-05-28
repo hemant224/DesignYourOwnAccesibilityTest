@@ -40,7 +40,7 @@ MONGODB_URI="HERE GOES YOUR URL TO CONNECT TO THE OTHER DATABASE"
 Finally, go to where you dowloand the project, example:
 
 ```
-C:\Program Files\DesignYourOwnAccesibilityTest>
+C:\Program Files\Downloads\DesignYourOwnAccesibilityTest>
 ```
 
 And run the following commands:
