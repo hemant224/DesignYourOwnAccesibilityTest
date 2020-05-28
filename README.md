@@ -37,7 +37,13 @@ cookieKey="HERE GOES YOUR COOKIE KEY"
 MONGODB_URI="HERE GOES YOUR URL TO CONNECT TO THE OTHER DATABASE"
 ```
 
-Finally, enter in the root folder of the proyect and run the following commands:
+Finally, go to where you dowloand the project, example:
+
+```
+C:\Program Files\DesignYourOwnAccesibilityTest>
+```
+
+And run the following commands:
 
 ```
  # Install dependencies
