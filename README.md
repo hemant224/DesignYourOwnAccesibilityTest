@@ -40,7 +40,7 @@ MONGODB_URI="HERE GOES YOUR URL TO CONNECT TO THE OTHER DATABASE"
 Finally, go to where you dowloand the project, example:
 
 ```
-C:\Program Files\Downloads\DesignYourOwnAccesibilityTest>
+C:\\Downloads\DesignYourOwnAccesibilityTest>
 ```
 
 And run the following commands:
@@ -53,7 +53,13 @@ And run the following commands:
  yarn start
 ```
 
-Then, enter to the front folder and run commands:
+Then, enter to the front folder
+
+```
+C:\\Downloads\DesignYourOwnAccesibilityTest\folder>
+```
+
+And run the following commands:
 
 ```
  # Install dependencies
