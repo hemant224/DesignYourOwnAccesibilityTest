@@ -92,7 +92,7 @@ const ModalAnswer = (props) => {
                               ></input>
                               <label
                                 className="custom-control-label"
-                                for={ans.answer}
+                                htmlFor={ans.answer}
                               >
                                 {ans.answer}
                               </label>
@@ -125,7 +125,7 @@ const ModalAnswer = (props) => {
                 {props.test.openQs.map((q, i) => {
                   return (
                     <div className="form-group">
-                      <label for={"openQ" + i}>{q.label}</label>
+                      <label htmlFor={"openQ" + i}>{q.label}</label>
                       <br></br>
                       <textarea
                         className="form-control"

@@ -43,7 +43,7 @@ function MongoUtils() {
         .db(dbName)
         .collection("test")
         .find()
-        .skip((page - 1) * 5)
+        .skip((page - 1) * 5 + 1)
         .limit(5)
         .toArray()
         .finally(() => client.close())
@@ -63,7 +63,6 @@ function MongoUtils() {
   };
 
   mu.newTest = (test) => {
-    console.log(test);
     return mu.connect().then((client) => {
       console.log(client);
       client

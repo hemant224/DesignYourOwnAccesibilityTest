@@ -25,7 +25,7 @@ const Home = () => {
           </button>
         </Link>
       </div>
-      <div class="5br"></div>
+      <div className="5br"></div>
     </div>
   );
 };
