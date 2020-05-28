@@ -51,11 +51,13 @@ function MongoUtils() {
   };
 
   mu.getBaseTest = () => {
+    const query = { base: true };
     return mu.connect().then((client) =>
       client
         .db(dbName)
         .collection("test")
         .find()
+        .find(query)
         .limit(1)
         .toArray()
         .finally(() => client.close())
