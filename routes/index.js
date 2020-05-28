@@ -50,6 +50,16 @@ router.get("/getAllTestsUser/:id", function (req, res) {
     .catch((err) => console.log(err));
 });
 
+router.get("/getTestUrl/:survey/:url", function (req, res) {
+  const url = "/" + req.params.survey + "/" + req.params.url;
+  mu.getTestUrl(url.toString())
+    .then((test) => {
+      console.log(test);
+      return res.json(test);
+    })
+    .catch((err) => console.log(err));
+});
+
 router.get("/getAllAnswersTest/:id", function (req, res) {
   mu.getAllAnswersTest(req.params.id)
     .then((tests) => {

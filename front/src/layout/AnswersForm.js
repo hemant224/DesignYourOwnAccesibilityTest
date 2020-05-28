@@ -1,14 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 
-const ModalAnswer = (props) => {
+const AnswersForm = (props) => {
   const formRef = useRef();
   const instructionRef = useRef();
+  const [test, setTest] = useState(null);
+  const [redirect, setRedirect] = useState(null);
+  //const [understand, setUnderstand] = useState(false);
+
   const handleSubmit = (evt) => {
     var formData = new FormData(formRef.current);
     let answers = [];
     // Display the key/value pairs
     let ans = "";
-    for (var q of props.test.radioQs) {
+    for (var q of test.radioQs) {
       ans = q.label;
     }
     let count = 0;
@@ -19,18 +24,18 @@ const ModalAnswer = (props) => {
     }
     for (let i = 3; i < formRef.current.length - 3; i++) {
       let j = i - 3;
-      let k = j - props.test.selectQs.length;
-      if (j >= props.test.selectQs.length) {
-        ans = props.test.openQs[k].label;
+      let k = j - test.selectQs.length;
+      if (j >= test.selectQs.length) {
+        ans = test.openQs[k].label;
       } else {
-        ans = props.test.selectQs[j].label;
+        ans = test.selectQs[j].label;
       }
       answers = [
         ...answers,
         { question: ans, answer: formRef.current[i].value },
       ];
     }
-    const testAns = { test: props.test._id, answers };
+    const testAns = { test: test._id, answers };
 
     fetch("/newAnswer", {
       method: "POST",
@@ -39,43 +44,46 @@ const ModalAnswer = (props) => {
       },
       body: JSON.stringify(testAns),
     });
-    evt.target.innerhtml = "Submitted!";
+    console.log(evt.target);
+    alert("Thank you for your submission");
+    evt.target.innerHTML = "Submitted!";
+    setRedirect("/");
   };
-  return (
-    <div
-      className="modal fade"
-      id="exampleModal"
-      tabIndex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h3 className="modal-title" id="exampleModalLabel">
-              {props.test.title ? props.test.title : "Error"}
-            </h3>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          {props.test.title ? (
-            <div className="modal-body">
+
+  useEffect(() => {
+    const pieces = window.location.href.split("/");
+    const url = pieces[pieces.length - 1];
+    fetch(`/getTestUrl/survey/${url}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonRes) => {
+        console.log("json", jsonRes);
+        setTest(jsonRes);
+      });
+  }, []);
+
+  let code = (
+    <div>
+      {test !== null ? (
+        <div class="card">
+          <h5 class="card-header">{test.title ? test.title : "Error"}</h5>
+
+          {test.title ? (
+            <div key={test.url + 1} class="card-body">
               <form ref={formRef} onSubmit={handleSubmit}>
                 <label>Description</label>
-                <p>{props.test.description}</p>
-                <label>URL</label>
+                <p>{test.description}</p>
+                <label>Habeas Data</label>
+                <p>{test.habeas}</p>
+                <label>This is the link you need to go to</label>
                 <div></div>
-                <a href={props.test.url}>{props.test.url}</a>
+                <a href={test.url} target="_blank">
+                  {test.url}
+                </a>
                 <div className="br"></div>
                 <h5>Demographic questions</h5>
-                {props.test.radioQs.map((q) => {
+                {test.radioQs.map((q, i) => {
                   return (
                     <div className="form-group">
                       <label>{q.label}</label>
@@ -86,16 +94,20 @@ const ModalAnswer = (props) => {
                               <input
                                 type="radio"
                                 id={ans.answer}
-                                name="radio"
+                                name={"radio" + i}
                                 value={ans.answer}
                                 className="custom-control-input"
+                                required
                               ></input>
                               <label
                                 className="custom-control-label"
-                                for={ans.answer}
+                                htmlFor={ans.answer}
                               >
                                 {ans.answer}
                               </label>
+                              <div class="invalid-feedback">
+                                Select an option before submitting
+                              </div>
                             </div>
                           );
                         })
@@ -105,11 +117,11 @@ const ModalAnswer = (props) => {
                     </div>
                   );
                 })}
-                {props.test.selectQs.map((q) => {
+                {test.selectQs.map((q) => {
                   return (
                     <div className="form-group">
                       <label>{q.label}</label>
-                      <select className="custom-select">
+                      <select className="custom-select" required>
                         <option>{q.selected}</option>
                         {q.options ? (
                           q.options.map((o) => {
@@ -122,21 +134,22 @@ const ModalAnswer = (props) => {
                     </div>
                   );
                 })}
-                {props.test.openQs.map((q, i) => {
+                {test.openQs.map((q, i) => {
                   return (
                     <div className="form-group">
-                      <label for={"openQ" + i}>{q.label}</label>
+                      <label htmlFor={"openQ" + i}>{q.label}</label>
                       <br></br>
                       <textarea
                         className="form-control"
                         id={"openQ" + i}
                         rows="1"
                         placeholder="Type your question here"
+                        required
                       ></textarea>
                     </div>
                   );
                 })}
-                <p>{"Instruction: " + props.test.instruction}</p>
+                <p>{"Instruction: " + test.instruction}</p>
                 <div className="form-group" ref={instructionRef}>
                   <label>Could you carry out the instruction?</label>
                   <div className="custom-control custom-radio">
@@ -146,6 +159,7 @@ const ModalAnswer = (props) => {
                       name="radioComplete"
                       value="Yes"
                       className="custom-control-input"
+                      required
                     ></input>
                     <label
                       className="custom-control-label"
@@ -161,6 +175,7 @@ const ModalAnswer = (props) => {
                       name="radioComplete"
                       value="No"
                       className="custom-control-input"
+                      required
                     ></input>
                     <label
                       className="custom-control-label"
@@ -173,32 +188,35 @@ const ModalAnswer = (props) => {
               </form>
             </div>
           ) : (
-            <div className="modal-body">
+            <div className="card-body">
               {" "}
               <h2> error</h2>
             </div>
           )}
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleSubmit}
-              data-dismiss="modal"
-            >
-              Submit
-            </button>
+          <button
+            type="submit"
+            className="btn btn-primary btn-sm"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+      ) : (
+        <div>
+          <div class="d-flex justify-content-center">
+            <div>
+              <h3>Loading</h3>
+            </div>
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
+  if (redirect) code = <Redirect to={redirect}></Redirect>;
+  return code;
 };
 
-export default ModalAnswer;
+export default AnswersForm;

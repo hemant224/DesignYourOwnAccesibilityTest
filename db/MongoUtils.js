@@ -100,6 +100,17 @@ function MongoUtils() {
     );
   };
 
+  mu.getTestUrl = (url) => {
+    const query = { anonUrl: url };
+    return mu.connect().then((client) =>
+      client
+        .db(dbName)
+        .collection("test")
+        .findOne(query)
+        .finally(() => client.close())
+    );
+  };
+
   mu.getAllAnswersTest = (id) => {
     const query = { test: id };
     return mu.connect().then((client) =>
