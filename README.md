@@ -44,7 +44,7 @@ Finally, enter in the root folder of the proyect and run the following commands:
  yarn start
 ```
 
-Then, Enter the folder front and run commands:
+Then, enter the folder front and run commands:
 ```
  # Install dependencies for server
  yarn install
