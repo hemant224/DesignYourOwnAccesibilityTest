@@ -53,7 +53,7 @@ And run the following commands:
  yarn start
 ```
 
-Then, enter the folder front and run commands:
+Then, enter to the front folder and run commands:
 
 ```
  # Install dependencies
