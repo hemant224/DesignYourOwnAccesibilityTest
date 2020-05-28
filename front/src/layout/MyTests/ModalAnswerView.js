@@ -26,14 +26,20 @@ const modalAnswerView = (props) => {
             </button>
           </div>
           <div className="modal-body">
-            {props.answer.map((answer, j) => {
-              return (
-                <div>
-                  <h5>{answer.question}</h5>
-                  <h5>{answer.answer}</h5>
-                </div>
-              );
-            })}
+            {props.answers ? (
+              <div>
+                {props.answers.map((ans, j) => {
+                  return (
+                    <div>
+                      <h5>{ans.question}</h5>
+                      <h5>{ans.answer}</h5>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
           <div className="modal-footer">
             <button

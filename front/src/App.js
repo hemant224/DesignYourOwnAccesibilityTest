@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [currentTest, setCurrentTest] = useState(null);
 
   useEffect(() => {
     fetch("/auth/getUser")
@@ -19,6 +20,11 @@ const App = () => {
         setUser(user);
       });
   }, []);
+
+  const handleClick = (evt, test) => {
+    console.log("handle click", test);
+    setCurrentTest(test);
+  };
 
   return (
     <Router>
@@ -34,10 +40,14 @@ const App = () => {
           <CheckYourAPPForm user={user} />
         </Route>
         <Route exact path="/mytests">
-          <MyTests user={user} />
+          <MyTests
+            user={user}
+            clickFun={handleClick}
+            currentTest={currentTest}
+          />
         </Route>
         <Route exact path="/getTestAnswers">
-          <TestAnswers test={{ _id: "5eb8d312382a666950f8d091" }} />
+          <TestAnswers test={currentTest} />
         </Route>
         <Route path="/survey/:id">
           <Encuesta />
